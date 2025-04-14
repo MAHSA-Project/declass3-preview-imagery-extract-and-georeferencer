@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 from PIL import Image
 
-input_csv = "D:\Onedrive\OneDrive - University of Cambridge\General - ARCH_MAHSA\MAHSA_Mapping\Project Cast Away\AreaOfInterest_PreviewImages_data2.csv"
+input_csv = r"D:\Onedrive\OneDrive - University of Cambridge\General - ARCH_MAHSA\MAHSA_Mapping\Project Cast Away\AreaOfInterest_PreviewImages_data2.csv"
 source_df = pd.read_csv(input_csv, encoding = "ISO-8859-1")
 source_df.columns = source_df.columns.str.replace(' ', '_')
 source_df['url'] = "https://ims.cr.usgs.gov/browse/declass3/" + source_df['Mission'] + "/" + source_df['Operations_Number'].map(lambda x: f'{x:0>5}') + "/" + source_df['Camera'] + "/" + source_df['Entity_ID'] + ".jpg"
